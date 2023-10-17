@@ -1,22 +1,17 @@
 function hasTargetSum(array, target) {
-  // Write your algorithm here
+  const seen = new Set();
+
+for (let num of array) {
+  const complement = target - num;
+  if (seen.has(complement)) {
+    return true;
+  }
+  seen.add(num);
 }
 
-/* 
-  Write the Big O time complexity of your function here
-*/
-
-/* 
-  Add your pseudocode here
-*/
-
-/*
-  Add written explanation of your solution here
-*/
-
-// You can run `node index.js` to view these console logs
+return false;
+}
 if (require.main === module) {
-  // add your own custom tests in here
   console.log("Expecting: true");
   console.log("=>", hasTargetSum([3, 8, 12, 4, 11, 7], 10));
 
